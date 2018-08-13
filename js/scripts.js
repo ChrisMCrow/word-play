@@ -10,7 +10,11 @@ $(document).ready(function() {
     var newFaves = [faves[1], faves[0], faves[2]];
 
     $(".hide").show();
-    $(".hide ul").append("<li>" + newFaves[0] + "</li>" + "<li>" + newFaves[1] + "</li>" + "<li>" + newFaves[2] + "</li>");
-
+    // The long way:
+    // $(".hide ul").append("<li>" + newFaves[0] + "</li>" + "<li>" + newFaves[1] + "</li>" + "<li>" + newFaves[2] + "</li>");
+    // The short way:
+    newFaves.forEach(function(list){
+      $('.hide ul').append('<li>' + list + '</li>');
+    })
   });
 });
