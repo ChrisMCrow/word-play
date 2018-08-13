@@ -1,20 +1,17 @@
-$(document).ready(function() {
-  $("[type='submit']").click(function(event) {
+$(document).ready(function(){
+  $("button").click(function(event){
+    var input = $("input#sentence").val();
+    var words = input.split(" ");
+    var longWords = [];
+    words.forEach(function(word){
+      if(word.length > 3){
+        longWords.push(word);
+      }
+
+    });
+    var reverseWords = longWords.reverse();
+    alert(reverseWords.join(' '));
     event.preventDefault();
-
-    var food = $("input#food").val();
-    var color = $("input#color").val();
-    var activity = $("input#activity").val();
-    var movie = $("input#movie").val();
-    var faves = [food, color, activity, movie];
-    var newFaves = [faves[1], faves[0], faves[2]];
-
-    $(".hide").show();
-    // The long way:
-    // $(".hide ul").append("<li>" + newFaves[0] + "</li>" + "<li>" + newFaves[1] + "</li>" + "<li>" + newFaves[2] + "</li>");
-    // The short way:
-    newFaves.forEach(function(list){
-      $('.hide ul').append('<li>' + list + '</li>');
-    })
   });
+
 });
